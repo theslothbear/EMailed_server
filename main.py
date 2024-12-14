@@ -17,4 +17,4 @@ def mail():
     except Exception as e:
         return f'Произошла ошибка: {str(e)}'
 
-app.run()
+app.run(host='0.0.0.0', port='80')
