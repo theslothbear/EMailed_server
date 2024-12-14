@@ -2,6 +2,10 @@ from flask import Flask, request, render_template, redirect, flash, make_respons
 
 app = Flask(__name__)
 
+@app.route("/")
+def hello():
+    return "Main page, nothing special..."
+
 @app.route('/mail')
 def mail():
     try:
