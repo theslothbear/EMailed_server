@@ -1,1 +1,3 @@
-strip_markdown,flask,bs4
+strip_markdown
+flask
+bs4
