@@ -1,3 +1,4 @@
 strip_markdown
 flask
 bs4
+lxml
