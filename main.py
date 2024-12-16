@@ -15,7 +15,7 @@ def mail():
         mail = MailConnector(login, password, imap_server)
         if mail.connect() == True:
             mail_text = mail.get_mail_text(str(m_id), False)
-            return mail_text
+            return f'{mail_text}'
         else:
             return f'Неверный логин или пароль: {mail.connect()}'
     except Exception as e:
