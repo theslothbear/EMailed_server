@@ -6,4 +6,4 @@ app = Flask(__name__)
 def hello():
     return "Main page, nothing special..."
 
-app.run(host='0.0.0.0',port=8080)
+app.run(host='0.0.0.0',port=1080)
