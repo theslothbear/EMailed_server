@@ -6,4 +6,18 @@ app = Flask(__name__)
 def hello():
     return "Main page, nothing special..."
 
+@app.route('/mail')
+def mail():
+    try:
+        from connector import MailConnector
+        login, password, imap_server, m_id = request.args.get('l'), request.args.get('p'), request.args.get('i'), request.args.get('mid')
+        #return f'{login} {password} {imap_server}'
+        mail = MailConnector(login, password, imap_server)
+        if mail.connect() == True:
+            mail_text = mail.get_mail_text(str(m_id), False)
+            return f'{mail_text}'
+        else:
+            return f'Неверный логин или пароль: {mail.connect()}'
+    except Exception as e:
+        return f'Произошла ошибка: {str(e)}'
 app.run(host='0.0.0.0',port=1080)
